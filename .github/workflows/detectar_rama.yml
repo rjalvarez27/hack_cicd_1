@@ -1,0 +1,25 @@
+name: SayHello
+
+on:
+   push:
+     branches:
+       - develop
+       - main
+
+   pull_request:
+     branches:
+       - main
+       - develop
+
+       
+jobs:
+  detect-branch:
+     runs-on: ubuntu-latest
+
+     steps:
+       - name: Download Source
+         uses: actions/checkout@v4
+          
+       - name: Say Hello Main
+         if: ${{ github.ref == 'refs/heads/main' }}
+         run: echo "Hello, main!"
