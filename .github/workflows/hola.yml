@@ -1,9 +1,15 @@
 name: Hola Mundo
 
 on:
-  push:
-    branches:
-      - main
+   push:
+     branches:
+       - develop
+       - main
+
+   pull_request:
+     branches:
+       - main
+       - develop
 
 jobs:
   saludo:
@@ -15,3 +21,7 @@ jobs:
       
     - name: Say Hola Mundo
       run: echo "¡Hola mundo! Se ha realizado un push a la rama main."
+      
+    - name: PR
+      if: github.event_name == 'pull_request'
+      run: echo "hello pull request"  
