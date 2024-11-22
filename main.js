@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken"); // verificar token
 const userModel = require("../models/user"); // base de datos
 
+
 const verifyRole = async (req, res, next) => { 
     try{
         // id: Administrador
