@@ -5,13 +5,7 @@ on:
      branches:
        - develop
        - main
-
-   pull_request:
-     branches:
-       - main
-       - develop
-
-       
+   
 jobs:
   detect-branch:
      runs-on: ubuntu-latest
@@ -23,3 +17,8 @@ jobs:
        - name: Say Hello Main
          if: ${{ github.ref == 'refs/heads/main' }}
          run: echo "Hello, main!"
+         
+       - name: Say Hello develop
+         if: ${{ github.ref == 'refs/heads/develop' }}
+         run: echo "Hello, Develop!"
+      
