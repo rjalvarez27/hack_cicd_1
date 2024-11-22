@@ -1,0 +1,20 @@
+name: Detectar PR
+
+on:
+  pull_request:
+    branches:
+      - main 
+      
+jobs:
+  detectar_PR:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download Source
+      uses: actions/checkout@v4
+      
+    - name: detectar_PR
+      if: github.event_name == 'pull_request'
+      run: echo "¡Se ha detectado un pull_request!"  
+
+      
